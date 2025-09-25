@@ -9,7 +9,7 @@ function App() {
       <div className="logo">
         <img src="/image.png" alt="" />
       </div>
-      <h1 className="titulo"></h1>
+
       <ListaProductos />
       <Footer/>
     </div>
