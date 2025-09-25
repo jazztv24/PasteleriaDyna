@@ -22,5 +22,13 @@
     display: flex !important;
     flex-direction: column !important;
     }
-    .iz
+    .iz{
+        width: 100%;
+    }
+    .med{
+        width: 100%;
+    }
+    .der{
+        width: 100%;
+    }
 }
