@@ -1,14 +1,17 @@
 // src/App.jsx
 import ListaProductos from "./components/ListaProductos";
 import './app.css';
+import Footer from "./Footer";
+
 function App() {
   return (
     <div className="body">
       <div className="logo">
         <img src="/image.png" alt="" />
       </div>
-      <h1 className="titulo">Lista de Productos XDDD</h1>
+      <h1 className="titulo"></h1>
       <ListaProductos />
+      <Footer/>
     </div>
   );
 }

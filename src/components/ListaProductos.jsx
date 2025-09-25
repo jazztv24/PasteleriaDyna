@@ -2,26 +2,23 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import Producto from "./Producto";
+import './lista.css';
+import ModalProducto from "./Modal"; // Asegúrate de que la ruta sea correcta
 
 const ListaProductos = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "ListaPrincipal"));
-
-        console.log("Docs en Firestore:");
-        querySnapshot.docs.forEach(doc => {
-          console.log(doc.id, "=>", doc.data());
-        });
-
         const productsData = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-
         setProducts(productsData);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -31,6 +28,15 @@ const ListaProductos = () => {
     };
     fetchProducts();
   }, []);
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
+
+  const openModalWithProduct = (product) => {
+    setSelectedProduct(product);
+    setModalOpen(true);
+  };
 
   if (loading) {
     return (
@@ -44,11 +50,23 @@ const ListaProductos = () => {
   }
 
   return (
-    <div className="d-flex flex-wrap CartasSeccion1">
-      {products.map((product) => (
-        <Producto key={product.id} product={product} />
-      ))}
-    </div>
+    <>
+      <div className="d-flex flex-wrap CartasSeccion1">
+        {products.map((product) => (
+          <Producto 
+            key={product.id} 
+            product={product} 
+            openModal={openModalWithProduct} // Pasamos la función al componente hijo
+          />
+        ))}
+      </div>
+      
+      <ModalProducto 
+        isOpen={modalOpen} 
+        toggle={toggleModal} 
+        product={selectedProduct} 
+      />
+    </>
   );
 };
 
