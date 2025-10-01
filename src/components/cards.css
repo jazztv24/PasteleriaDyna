@@ -2,6 +2,7 @@
     background-color: red;
     border: solid 3px white; 
     width: 14rem;
+    padding-bottom:10px;
     &:hover{
         transition: 0.2s;
         scale: 1.01;
