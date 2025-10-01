@@ -7,7 +7,8 @@ function App() {
   return (
     <div className="body">
       <div className="logo">
-        <img src="/image.png" alt="" />
+        <img src="/LogoDynasCake.png" alt="" />
+        <img src="/Endulza.png" className="endulza" alt="" />
       </div>
 
       <ListaProductos />

@@ -12,10 +12,19 @@
 .logo{
     background-color: rgb(0, 0, 0);
     width: 100%;
-    display: grid;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 .logo img{
-    height: 100px;
+    height: 150px;
     margin: 15px;
+}
+
+@media(width<600px)
+{
+    .endulza{
+        display: none;
+    }
 }
