@@ -1,18 +1,22 @@
+// ModalProducto.js
 import React from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import Carrusel from './Carrusel'; // La ruta a tu nuevo componente
 
 const ModalProducto = ({ isOpen, toggle, product }) => {
   if (!product) {
-    return null; // No renderiza nada si no hay un producto seleccionado
+    return null; 
   }
 
   return (
-    <Modal isOpen={isOpen} toggle={toggle}>
+    <Modal isOpen={isOpen} toggle={toggle} size="lg">
       <ModalHeader toggle={toggle}>{product.nombre}</ModalHeader>
       <ModalBody>
-        <div className="text-center">
-          <img src={product.img} className="img-fluid mb-3" alt={product.nombre} style={{ maxWidth: '100%' }} />
+        {/* Aquí llamas a <Carrusel> y le pasas el producto completo */}
+        <div className="mb-3">
+          <Carrusel product={product} /> 
         </div>
+        
         <p>{product.descripcion}</p>
         <p><strong>Precio: </strong>Bs{product.precio}</p>
       </ModalBody>

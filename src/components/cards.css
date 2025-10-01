@@ -30,11 +30,19 @@
     width:100% ;
     height: 100px;
     display: flex !important;
+    border: solid black 1px !important;
     flex-direction: row !important;
     }
     .imagen{
-    width: 150px;
-    align-content: center;
-    margin: 15px;
+    width: 200px;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 25px 25px 25px 25px!important;
+    }
+    .imagen img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }

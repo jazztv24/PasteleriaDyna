@@ -2,9 +2,9 @@ import './cards.css';
 
 const Producto = ({ product, openModal }) => {
   return (
-    <div className="card m-3">
+    <div className="card m-2">
       <div className="imagen">
-        <img src={product.img} className="card-img-top" alt={product.nombre} />
+        <img src={product.img1} className="card-img-top" alt={product.nombre} />
       </div>
       <div className="card-body">
         <h5 className="card-title">{product.nombre}</h5>
