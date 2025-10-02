@@ -1,8 +1,8 @@
 .card{
     background-color: red;
     border: solid 3px white; 
+    margin-bottom: 25px !important;
     width: 14rem;
-    padding-bottom:10px !important;
     &:hover{
         transition: 0.2s;
         scale: 1.01;
